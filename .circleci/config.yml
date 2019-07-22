@@ -105,6 +105,7 @@ workflows:
           context: 6rs-public-npm
           requires:
             - setup
+            - build
       - publish:
           context: 6rs-public-npm
           requires:
