@@ -53,8 +53,7 @@ jobs:
           password: $GCLOUD_SERVICE_KEY
         environment:
           NODE_ENV: development
-          DATABASE_URL: postgres://root:@127.0.0.1:5432/mmmbbb
-          CREATE_DB_VIA: circle_test
+          DATABASE_URL: sqlite:///tmp/mmmbbb.sqlite
           LOG_LEVEL: debug
           PORT: 8801
     steps:
