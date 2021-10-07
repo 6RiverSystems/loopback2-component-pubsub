@@ -7,7 +7,6 @@ jobs:
   setup:
     docker:
       - image: cimg/node:14.17.6
-      - image: google/cloud-sdk
     steps:
       - checkout
       - run:
