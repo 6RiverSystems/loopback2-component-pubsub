@@ -9,6 +9,7 @@ jobs:
       - image: cimg/node:14.17.6
     steps:
       - checkout
+      - sixrs-gke/setup-private-npm
       - run:
           name: Install Dependencies
           command: npm ci
