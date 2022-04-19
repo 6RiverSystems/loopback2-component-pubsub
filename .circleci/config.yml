@@ -107,4 +107,3 @@ workflows:
             branches:
               only:
                 - main
-                - fix/cur-2096-pubsob-part-deux
