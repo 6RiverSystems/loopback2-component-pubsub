@@ -1,12 +1,16 @@
 version: 2.1
 
 orbs:
-  sixrs-gke: sixriversystems/sixrs-gke@3
+  sixrs-gke: sixriversystems/sixrs-gke@7
+
+aliases:
+  - &node_image cimg/node:16.19.0
+  # - &npm_global_cache dependency-cache-v4-{{ checksum ".node-version" }}-{{ checksum "package-lock.json" }}
 
 jobs:
   setup:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
     steps:
       - checkout
       - sixrs-gke/setup-private-npm
@@ -16,11 +20,12 @@ jobs:
       - persist_to_workspace:
           root: ./
           paths:
-            - .
+            - ./node_modules
   build:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
     steps:
+      - checkout
       - attach_workspace:
           at: ./
       - run:
@@ -32,8 +37,9 @@ jobs:
             - dist
   lint:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
     steps:
+      - checkout
       - attach_workspace:
           at: ./
       - run:
@@ -45,7 +51,7 @@ jobs:
           path: ./reports
   test:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
         environment:
           MOCHA_OPTS: --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/junit/mocha/mocha.xml
       - image: gcr.io/plasma-column-128721/mmmbbb:latest
@@ -58,6 +64,7 @@ jobs:
           LOG_LEVEL: debug
           PORT: 8801
     steps:
+      - checkout
       - attach_workspace:
           at: ./
       - run:
@@ -69,8 +76,9 @@ jobs:
           path: ./reports
   publish:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
     steps:
+      - checkout
       - attach_workspace:
           at: ./
       - run:
