@@ -1,4 +1,4 @@
-import { should } from 'chai';
+import { assert } from 'chai';
 
 import { app } from './server';
 
@@ -12,10 +12,10 @@ describe('loopback-component-pubsub', function () {
 	});
 
 	it('should create pubsub client', function () {
-		should.exist(app.pubsub);
+		assert.ok(app.pubsub);
 	});
 
 	it('should use component config', function () {
-		app.pubsub.projectId.should.equal('test');
+		assert.equal(app.pubsub.projectId, 'test');
 	});
 });
