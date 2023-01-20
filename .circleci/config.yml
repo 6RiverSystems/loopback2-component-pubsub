@@ -44,7 +44,9 @@ jobs:
           at: ./
       - run:
           name: Lint
-          command: npm run lint -- --format junit --output-file ./reports/eslint/results.xml
+          environment:
+            ESLINT_OPTS: "--format junit --output-file ./reports/eslint/results.xml"
+          command: npm run lint
       - store_test_results:
           path: ./reports
       - store_artifacts:
