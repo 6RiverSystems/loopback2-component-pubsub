@@ -58,7 +58,7 @@
     "eslint-plugin-mocha": "^10.1.0",
     "google-auth-library": "7.14.1",
     "husky": "^8.0.3",
-    "loopback": "^2.36.0",
+    "loopback": "^3.28.0",
     "loopback-boot": "^2.23.0",
     "mocha": "^6.2.3",
     "mocha-junit-reporter": "^1.23.3",
