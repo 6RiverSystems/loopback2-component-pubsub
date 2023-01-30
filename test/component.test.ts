@@ -1,16 +1,21 @@
-const should = require('chai').should();
-import {app} from './server';
+import { assert } from 'chai';
 
-describe('loopback-component-pubsub', function() {
-	beforeEach(function() {});
+import { app } from './server';
 
-	afterEach(function() {});
-
-	it('should create pubsub client', function() {
-		should.exist(app.pubsub);
+describe('loopback-component-pubsub', function () {
+	beforeEach(function () {
+		return;
 	});
 
-	it('should use component config', function() {
-		app.pubsub.projectId.should.equal('test');
+	afterEach(function () {
+		return;
+	});
+
+	it('should create pubsub client', function () {
+		assert.ok(app.pubsub);
+	});
+
+	it('should use component config', function () {
+		assert.equal(app.pubsub.projectId, 'test');
 	});
 });
