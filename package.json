@@ -43,8 +43,7 @@
   "devDependencies": {
     "@6river/commitlint-config-6river": "2.3.0-node.1",
     "@commitlint/cli": "^17.4.2",
-    "@google-cloud/pubsub": "2.19.0",
-    "@sixriver/pubsub-support": "11.9.1",
+    "@google-cloud/pubsub": "^3.0.2",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^5.2.7",
     "@types/node": "16.18.11",
@@ -69,8 +68,8 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
-    "@google-cloud/pubsub": "^2.19.0",
-    "@sixriver/pubsub-support": "^11.9.1"
+    "@google-cloud/pubsub": "^3.0.2",
+    "@sixriver/pubsub-support": "^13.5.0"
   },
   "engines": {
     "node": ">= 16.19.0"
